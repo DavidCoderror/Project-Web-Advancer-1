@@ -3,6 +3,16 @@ const router = express.Router()
 const { Produits } = require("../models")
 application.use(express.json())
 
+
+
+/*
+Ce section est pour les Get et Post
+
+Express a des implimation deja construit a l'interieur,
+Sequelize offre aussi des implimentations, qui ensemple
+simplifira la vie pour ce section
+*/
+
 //Get
 router.get('/', async (req, res)=> {
     const listOfProduits = await  Produits.findAll() //Chercher l'information
