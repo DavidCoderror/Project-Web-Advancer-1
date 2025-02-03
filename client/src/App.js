@@ -22,7 +22,7 @@ useEffect(() => {
 //Verifier que c'est pas Null les entrez des utilisateur
 const verification = Yup.object().shape({
   Nom: Yup.string().required("Nom est necessaire!!! "),
-  Descriiption: Yup.string().required("Description est necessaire!!! ")
+  //Descriiption: Yup.string().required("Description est necessaire!!! ")
 })
 //Necessaire
 const valeurInitiales = {
@@ -35,18 +35,26 @@ const enSoummision = (data) => {
     setListProduits((prev) => [...prev, reponse.data]);
   })
 }
+//Delete
+const handleDelete = (id) => {
+  axios.delete(`http://localhost:3002/produits/${id}`).then(() => {
+
+    setListProduits((prev) => prev.filter((produit) => produit.id !== id));
+  });
+};
 
 
 //Section HTML
   return (
     <div className="App">
+      <h2 class="header">Home</h2>
 
         <Formik 
         initialValues={valeurInitiales} 
         onSubmit ={enSoummision} 
         validationSchema={verification}
         >
-          <Form>
+          <Form class="form">
             <label>Nom du Produit: </label>
             <ErrorMessage name ="Nom" component="span"/>
             <Field id = "inputCreationProduits" name="Nom" placeholder="Nom ICI"/>
@@ -54,24 +62,39 @@ const enSoummision = (data) => {
             <br/>
 
             <label>Description du Produit: </label>
-            <ErrorMessage name ="Descriiption" component="span"/>
             <Field id = "inputCreationProduits" name="Descriiption" placeholder="Description ICI"/>
 
             <br/>
 
-            <button type="Submit">Creer Produit</button>
+            <button type="Submit" class="bouton-add">Creer Produit</button>
 
           </Form>
         </Formik>
 
+        <h1 class="titre">Produits</h1>
         <br/> 
         <br/>
 
+        <div class = "produits-header"> 
+          <p>Nom</p>
+          <p>Description</p>
+          <p>Actions</p>
+        </div>
+
+        <hr class="ligne"></hr>
+
         {listProduits.map((valeur, cle) => {
           return (
-          <div> 
-                <div> {valeur.Nom} </div>
-                <div> {valeur.Descriiption} </div>
+            <div>
+                <div class = "produits-layout"> 
+                    <p>{valeur.Nom} </p>
+                    <p> {valeur.Descriiption} </p>
+                    <div> 
+                      <button class="bouton-edit"> Edit </button>
+                      <button class="bouton-delete" onClick={() => handleDelete(valeur.id)}> Delete </button>
+                    </div>
+                </div>
+                <hr class="ligne"></hr>
           </div>
           )//Return Fin
 

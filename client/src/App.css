@@ -1,3 +1,78 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+  color:white;
+  background-color: rgb(2, 2, 43);
+
+  padding-top:10px ;
+  padding-bottom: 10px ;
+
+  margin-top:0;
+  margin-bottom: 15px;
+
+  text-align: left;
+
+  width: 100%;
+
+  display: block;
+}
+
+.bouton-add{
+  padding: 8px;
+  color: white;
+  background-color: darkgreen;
+
+  border-radius: 5px;
+  border-color: white;
+}
+
+.bouton-edit{
+  padding: 8px;
+  color: white;
+  background-color: rgb(47, 69, 214);
+
+  border-radius: 5px;
+  border-color: white;
+}
+
+.bouton-delete{
+  padding: 8px;
+  color: white;
+  background-color: rgb(139, 0, 0);
+
+  border-radius: 5px;
+  border-color: white;
+}
+.form{
+  text-align: left;
+  font-size: small;
+}
+
+.titre{
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+.produits-header{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-right: 30%;
+  font-size: small;
+}
+
+.produits-layout{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 28%;
+  font-size: small;
+}
+
+.ligne{
+  margin: 4px;
 }
