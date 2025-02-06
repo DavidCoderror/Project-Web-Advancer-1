@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
 }
-
 .header{
   color:white;
   background-color: rgb(2, 2, 43);
@@ -22,6 +21,7 @@
   display: block;
 }
 
+/*Boutons*/
 .bouton-add{
   padding: 8px;
   color: white;
@@ -48,6 +48,8 @@
   border-radius: 5px;
   border-color: white;
 }
+
+/* L'haut du Page */
 .form{
   text-align: left;
   font-size: small;
@@ -58,6 +60,9 @@
   margin-bottom: 0;
   margin-top: 4px;
 }
+
+/* Sections Produits */
+
 .produits-header{
   display: flex;
   justify-content: space-between;
@@ -73,6 +78,7 @@
   font-size: small;
 }
 
+/* Pour les ligne horziontale */
 .ligne{
   margin: 4px;
 }

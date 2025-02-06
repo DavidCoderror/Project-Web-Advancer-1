@@ -1,9 +1,9 @@
 import './App.css';
 import axios from 'axios'
 
-import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react' //Pour les Get et Post
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik"; // Utiliser pour les forms
 import * as Yup from 'yup'
 
 function App() {
@@ -35,8 +35,8 @@ const enSoummision = (data) => {
     setListProduits((prev) => [...prev, reponse.data]);
   })
 }
-//Delete
-const handleDelete = (id) => {
+//Delete, on cherche l'id specifique du produit, puis on le cherche et passe le query
+const produitDelete = (id) => {
   axios.delete(`http://localhost:3002/produits/${id}`).then(() => {
 
     setListProduits((prev) => prev.filter((produit) => produit.id !== id));
@@ -91,7 +91,7 @@ const handleDelete = (id) => {
                     <p> {valeur.Descriiption} </p>
                     <div> 
                       <button class="bouton-edit"> Edit </button>
-                      <button class="bouton-delete" onClick={() => handleDelete(valeur.id)}> Delete </button>
+                      <button class="bouton-delete" onClick={() => produitDelete(valeur.id)}> Delete </button>
                     </div>
                 </div>
                 <hr class="ligne"></hr>
